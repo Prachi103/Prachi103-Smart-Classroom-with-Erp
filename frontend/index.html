@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Classroom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <!-- ✅ HEADER -->
+  <header>
+    <h1>Smart Classroom Management System</h1>
+    <nav>
+      <ul>
+        <li><a href="#" id="homeLink">Home</a></li>
+        <li><a href="#" id="loginLink">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ✅ PAGE 1: HOME PAGE -->
+  <section id="home" class="section">
+    <div class="hero">
+      <h2>Welcome to Smart Classroom</h2>
+      <p>Seamless student & teacher management with real-time attendance tracking.</p>
+      <button class="btn" id="getStarted">Get Started</button>
+    </div>
+
+    <div class="features">
+      <div class="feature-box">
+        <h3>📚 Course Management</h3>
+        <p>Easily organize and manage classroom materials.</p>
+      </div>
+      <div class="feature-box">
+        <h3>✅ Face Recognition Attendance</h3>
+        <p>Mark attendance automatically using facial recognition.</p>
+      </div>
+      <div class="feature-box">
+        <h3>💰 Fee Payment System</h3>
+        <p>Easy online fee payment with QR codes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ PAGE 2: LOGIN SELECTION -->
+  <section id="login" class="section hidden">
+    <div class="login-selection">
+      <h2>Login As</h2>
+      <div class="login-options">
+        <button id="userLoginBtn" class="login-option-btn">
+          <i class="fas fa-user-tie"></i>
+          <span>User/Teacher</span>
+        </button>
+        <button id="studentLoginBtn" class="login-option-btn">
+          <i class="fas fa-user-graduate"></i>
+          <span>Student</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ✅ USER LOGIN FORM -->
+    <div id="userLoginForm" class="login-container hidden">
+      <h2>User Login</h2>
+      <form id="userLoginFormEl">
+        <input type="text" id="username" placeholder="Enter Username" required />
+        <input type="password" id="password" placeholder="Enter Password" required />
+        <button type="submit" id="userLoginSubmit">Login</button>
+        <p id="user-error-message" class="error-message"></p>
+      </form>
+    </div>
+
+    <!-- ✅ STUDENT LOGIN FORM -->
+    <div id="studentLoginForm" class="login-container hidden">
+      <h2>Student Login</h2>
+      <form id="studentLoginFormEl">
+        <input type="text" id="rollNo" placeholder="Enter Roll Number" required />
+        <input type="password" id="studentPassword" placeholder="Enter Password" required />
+        <button type="submit" id="studentLoginSubmit">Login</button>
+        <p id="student-error-message" class="error-message"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ✅ PAGE 3: STUDENT DASHBOARD -->
+  <section id="studentDashboard" class="section hidden">
+    <h2>Welcome, <span id="student-name"></span></h2>
+    
+    <div class="student-options">
+      <button class="student-option" id="feesOption">
+        <i class="fas fa-rupee-sign"></i> Fee Payment
+      </button>
+      <button class="student-option" id="assignmentOption">
+        <i class="fas fa-tasks"></i> Assignment Submit
+      </button>
+      <button class="student-option" id="viewTimetable">
+        <i class="fas fa-calendar-alt"></i> View Timetable
+      </button>
+      <button class="student-option" id="attendanceOption">
+        <i class="fas fa-camera"></i> Face Attendance
+      </button>
+      <button class="student-option" id="viewAttendance">
+        <i class="fas fa-calendar-check"></i> View Attendance
+      </button>
+      <!-- Add this inside studentDashboard section -->
+<button class="student-option" id="markAttendance">
+  <i class="fas fa-user-check"></i> Mark Attendance
+</button>
+    </div>
+
+    <!-- Dynamic content will load here -->
+    <div id="studentContent"></div>
+    
+    <button id="logout" class="logout-btn">Logout</button>
+  </section>
+
+<!-- ✅ PAGE 5: USER/TEACHER DASHBOARD -->
+<section id="userDashboard" class="section hidden">
+  <h2>Welcome, <span id="user-name-display"></span></h2>
+  
+  <div class="user-info" id="userInfoContent">
+    <!-- User details from backend will be loaded here -->
+  </div>
+  
+  <div class="user-options">
+    <button class="user-option" id="publishAssignment">
+      <i class="fas fa-upload"></i> Publish Assignment
+    </button>
+    <button class="user-option" id="manageTimetable">
+      <i class="fas fa-calendar-alt"></i> Manage Timetable
+    </button>
+    <button class="user-option" id="takeAttendance">
+      <i class="fas fa-user-check"></i> Take Attendance
+    </button>
+    <button class="user-option" id="viewAllAttendance">
+      <i class="fas fa-clipboard-list"></i> View All Attendance
+    </button>
+    <!-- Add this inside userDashboard section -->
+<div class="user-options">
+  <!-- ... other options ... -->
+  <button class="user-option" id="manageSchedule">
+    <i class="fas fa-calendar-plus"></i> Manage Schedule
+  </button>
+  <button class="user-option" id="takeAttendance">
+    <i class="fas fa-user-check"></i> Take Attendance
+  </button>
+</div>
+  </div>
+  
+  <button id="logoutUser" class="logout-btn">Logout</button>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Smart Classroom. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
